@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Helper — трекер домашних дел</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <h1 class="logo">Family Helper</h1>
+      <p class="tagline">Трекер домашних дел для всей семьи</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="notifications" class="notifications" hidden></section>
+
+    <section class="stats" id="stats"></section>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab is-active" data-tab="tasks">Задачи</button>
+      <button class="tab" data-tab="members">Участники</button>
+      <button class="tab" data-tab="analytics">Аналитика</button>
+      <button class="tab" data-tab="history">История</button>
+    </nav>
+    <section class="panel is-active" id="panel-tasks">
+      <div class="panel-head">
+        <h2>Список дел</h2>
+        <button class="btn btn-primary" id="btn-add-task">+ Новая задача</button>
+      </div>
+      <form class="task-form" id="task-form" hidden>
+        <input type="hidden" id="task-id">
+        <div class="form-row">
+          <label>Название*
+            <input type="text" id="task-title" maxlength="120" placeholder="Например: помыть посуду">
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Описание
+            <textarea id="task-desc" rows="2" placeholder="Подробности (необязательно)"></textarea>
+          </label>
+        </div>
+        <div class="form-grid">
+          <label>Категория
+            <select id="task-category"></select>
+          </label>
+          <label>Срок
+            <input type="date" id="task-due">
+          </label>
+        </div>
+        <div class="form-row">
+          <span class="label-text">Исполнители</span>
+          <div class="assignees" id="task-assignees">
+            <span class="hint">Сначала добавьте участников во вкладке «Участники»</span>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="task-submit">Сохранить</button>
+          <button type="button" class="btn" id="task-cancel">Отмена</button>
+        </div>
+        <p class="form-error" id="task-error" hidden></p>
+      </form>
+
+      <div class="filters">
+        <input type="search" id="filter-search" placeholder="Поиск по названию...">
+        <select id="filter-status">
+          <option value="all">Все статусы</option>
+          <option value="planned">Запланированы</option>
+          <option value="done">Выполнены</option>
+        </select>
+        <select id="filter-category">
+          <option value="all">Все категории</option>
+        </select>
+        <select id="filter-assignee">
+          <option value="all">Все исполнители</option>
+        </select>
+        <select id="filter-sort">
+          <option value="due">По сроку</option>
+          <option value="title">По названию</option>
+          <option value="created">По дате создания</option>
+        </select>
+      </div>
+
+      <ul class="task-list" id="task-list"></ul>
+    </section>
+
+    <section class="panel" id="panel-members">
+      <div class="panel-head">
+        <h2>Члены семьи</h2>
+      </div>
+      <form class="inline-form" id="member-form">
+        <input type="text" id="member-name" maxlength="40" placeholder="Имя участника">
+        <button type="submit" class="btn btn-primary">Добавить</button>
+      </form>
+      <p class="form-error" id="member-error" hidden></p>
+      <ul class="member-list" id="member-list"></ul>
+
+      <div class="panel-head" style="margin-top:24px">
+        <h2>Категории</h2>
+      </div>
+      <form class="inline-form" id="category-form">
+        <input type="text" id="category-name" maxlength="30" placeholder="Новая категория">
+        <button type="submit" class="btn btn-primary">Добавить</button>
+      </form>
+      <p class="form-error" id="category-error" hidden></p>
+      <ul class="chips" id="category-list"></ul>
+    </section>
+    <section class="panel" id="panel-analytics">
+      <div class="panel-head">
+        <h2>Рейтинг активности</h2>
+      </div>
+      <table class="rating-table" id="rating-table">
+        <thead>
+          <tr><th>#</th><th>Участник</th><th>Выполнено</th><th>В работе</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div class="charts">
+        <div class="chart-box">
+          <h3>Выполнено по участникам</h3>
+          <canvas id="chart-rating" width="400" height="240"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Задачи по категориям</h3>
+          <canvas id="chart-category" width="400" height="240"></canvas>
+        </div>
+      </div>
+    </section>
+    <section class="panel" id="panel-history">
+      <div class="panel-head">
+        <h2>История выполненных дел</h2>
+        <button class="btn" id="btn-export">Экспорт в JSON</button>
+      </div>
+      <ul class="task-list" id="history-list"></ul>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <button class="btn btn-danger" id="btn-reset">Сбросить все данные</button>
+      <span class="muted">Данные хранятся локально в вашем браузере (localStorage)</span>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/users.js"></script>
+  <script src="js/tasks.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

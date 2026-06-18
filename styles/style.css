@@ -1,0 +1,449 @@
+
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #eeeeee;
+	color: #333333;
+	margin: 0;
+	font-size: 15px;
+}
+
+.container {
+	width: 90%;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+/* шапка */
+.app-header {
+	background-color: #3b6ea5;
+	color: white;
+	padding: 15px 0;
+	margin-bottom: 20px;
+}
+
+.logo {
+	margin: 0;
+	font-size: 28px;
+}
+
+.tagline {
+	margin: 5px 0 0 0;
+	font-size: 14px;
+}
+
+/* уведомления */
+.notifications {
+	background-color: #fff8dc;
+	border: 1px solid #e0c000;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+.notifications ul {
+	margin: 5px 0 0 0;
+	padding-left: 20px;
+}
+
+.note-overdue {
+	color: red;
+	font-weight: bold;
+}
+
+.note-today {
+	color: #cc6600;
+	font-weight: bold;
+}
+
+.note-soon {
+	color: #555555;
+}
+
+/* счетчики */
+.stats {
+	margin-bottom: 20px;
+}
+
+.stat-card {
+	display: inline-block;
+	background-color: white;
+	border: 1px solid #cccccc;
+	width: 140px;
+	padding: 10px;
+	margin: 0 5px 5px 0;
+	text-align: center;
+	vertical-align: top;
+}
+
+.stat-value {
+	display: block;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.stat-label {
+	display: block;
+	font-size: 12px;
+	color: #777777;
+}
+
+.stat-ok .stat-value {
+	color: green;
+}
+
+.stat-wait .stat-value {
+	color: #3b6ea5;
+}
+
+.stat-bad .stat-value {
+	color: red;
+}
+
+/* вкладки */
+.tabs {
+	margin-bottom: 15px;
+	border-bottom: 2px solid #3b6ea5;
+}
+
+.tab {
+	background-color: #dddddd;
+	border: 1px solid #cccccc;
+	border-bottom: none;
+	padding: 8px 16px;
+	cursor: pointer;
+	font-size: 15px;
+	margin-right: 2px;
+}
+
+.tab.is-active {
+	background-color: #3b6ea5;
+	color: white;
+}
+
+/* панели вкладок */
+.panel {
+	display: none;
+}
+
+.panel.is-active {
+	display: block;
+}
+
+.panel-head {
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.panel-head h2 {
+	font-size: 20px;
+	margin: 0;
+	display: inline-block;
+}
+
+.panel-head .btn {
+	float: right;
+}
+
+/* кнопки */
+.btn {
+	background-color: #f0f0f0;
+	border: 1px solid #999999;
+	padding: 6px 12px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.btn:hover {
+	background-color: #e0e0e0;
+}
+
+.btn-primary {
+	background-color: #3b6ea5;
+	color: white;
+	border-color: #2f5a87;
+}
+
+.btn-primary:hover {
+	background-color: #2f5a87;
+}
+
+.btn-ok {
+	background-color: #4caf50;
+	color: white;
+	border-color: #3d8b40;
+}
+
+.btn-danger {
+	background-color: #f0f0f0;
+	color: red;
+	border-color: #cc0000;
+}
+
+.btn-danger:hover {
+	background-color: #cc0000;
+	color: white;
+}
+
+.btn-sm {
+	padding: 3px 8px;
+	font-size: 13px;
+}
+
+/* форма задачи */
+.task-form {
+	background-color: white;
+	border: 1px solid #cccccc;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+.form-row {
+	margin-bottom: 10px;
+}
+
+.form-grid {
+	margin-bottom: 10px;
+}
+
+label {
+	display: block;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.label-text {
+	display: block;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+input[type=text],
+input[type=search],
+input[type=date],
+textarea,
+select {
+	padding: 6px;
+	border: 1px solid #aaaaaa;
+	font-size: 14px;
+	font-family: Arial, sans-serif;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.form-grid label {
+	display: inline-block;
+	width: 48%;
+}
+
+.assignees {
+	margin-top: 5px;
+}
+
+.check {
+	display: inline-block;
+	margin-right: 15px;
+	width: auto;
+}
+
+.check input {
+	width: auto;
+}
+
+.hint {
+	color: #888888;
+	font-size: 13px;
+}
+
+.form-actions {
+	margin-top: 10px;
+}
+
+.form-error {
+	color: red;
+	background-color: #ffe0e0;
+	border: 1px solid #cc0000;
+	padding: 8px;
+	margin-top: 10px;
+}
+
+.inline-form {
+	margin-bottom: 8px;
+}
+
+.inline-form input {
+	width: 250px;
+}
+
+/* фильтры */
+.filters {
+	margin-bottom: 15px;
+}
+
+.filters input,
+.filters select {
+	width: auto;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+/* список задач */
+.task-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.task-item {
+	background-color: white;
+	border: 1px solid #cccccc;
+	border-left: 5px solid #3b6ea5;
+	padding: 10px;
+	margin-bottom: 8px;
+	overflow: hidden;
+}
+
+.task-item.is-done {
+	border-left-color: green;
+	background-color: #f5f5f5;
+}
+
+.task-item.is-done .task-title {
+	text-decoration: line-through;
+	color: #888888;
+}
+
+.task-item.is-overdue {
+	border-left-color: red;
+}
+
+.task-main {
+	float: left;
+	width: 70%;
+}
+
+.task-title {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.task-desc {
+	font-size: 14px;
+	color: #777777;
+}
+
+.task-meta {
+	font-size: 13px;
+	color: #777777;
+	margin-top: 5px;
+}
+
+.task-meta span {
+	margin-right: 12px;
+}
+
+.badge {
+	background-color: #dde6f0;
+	color: #2f5a87;
+	padding: 2px 8px;
+	font-size: 12px;
+}
+
+.task-controls {
+	float: right;
+	text-align: right;
+}
+
+.task-controls .btn {
+	margin-left: 4px;
+	margin-bottom: 4px;
+}
+
+.empty {
+	color: #888888;
+	text-align: center;
+	padding: 20px;
+	list-style: none;
+}
+
+/* участники и категории */
+.member-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.member-item {
+	background-color: white;
+	border: 1px solid #cccccc;
+	padding: 8px 10px;
+	margin-bottom: 6px;
+	overflow: hidden;
+}
+
+.member-item .btn {
+	float: right;
+}
+
+.chips {
+	list-style: none;
+	padding: 0;
+}
+
+.chip {
+	display: inline-block;
+	background-color: #dde6f0;
+	color: #2f5a87;
+	padding: 5px 10px;
+	margin: 0 5px 5px 0;
+}
+
+/* таблица рейтинга */
+.rating-table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: white;
+}
+
+.rating-table th,
+.rating-table td {
+	border: 1px solid #cccccc;
+	padding: 8px;
+	text-align: left;
+}
+
+.rating-table th {
+	background-color: #dddddd;
+}
+
+/* диаграммы */
+.charts {
+	margin-top: 20px;
+}
+
+.chart-box {
+	background-color: white;
+	border: 1px solid #cccccc;
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+.chart-box h3 {
+	margin: 0 0 10px 0;
+	font-size: 16px;
+}
+
+.chart-box canvas {
+	max-width: 100%;
+}
+
+.app-footer {
+	margin-top: 30px;
+	padding: 15px 0;
+	border-top: 1px solid #cccccc;
+}
+
+.muted {
+	color: #888888;
+	font-size: 13px;
+	margin-left: 10px;
+}
